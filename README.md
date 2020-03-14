@@ -4,4 +4,4 @@ English | [简体中文](./README-zh.md)
 
 ## License
 [MIT](https://github.com/singhlee/nood-web/blob/master/LICENSE) license.
-Copyright (c) 2020-present
+Copyright (c) 2020-present singhlee
