@@ -6,15 +6,15 @@
         <h3 class="title">nood</h3>
       </div>
 
-      <el-form-item prop="userName">
+      <el-form-item prop="username">
         <span class="svg-container">
           <svg-icon icon-class="user" />
         </span>
         <el-input
-          ref="userName"
-          v-model="loginForm.userName"
+          ref="username"
+          v-model="loginForm.username"
           placeholder="用户"
-          name="userName"
+          name="username"
           type="text"
           tabindex="1"
           auto-complete="on"
@@ -44,7 +44,7 @@
       <el-button :loading="loading" type="primary" style="width:100%;margin-bottom:30px;" @click.native.prevent="handleLogin">登录</el-button>
 
       <div class="tips">
-<!--        <span style="margin-right:20px;">userName: admin</span>-->
+<!--        <span style="margin-right:20px;">username: admin</span>-->
 <!--        <span> password: any</span>-->
       </div>
 
@@ -74,11 +74,11 @@ export default {
     }
     return {
       loginForm: {
-        userName: '',
+        username: '',
         password: ''
       },
       loginRules: {
-        userName: [{ required: true, trigger: 'blur', validator: validateUsername }],
+        username: [{ required: true, trigger: 'blur', validator: validateUsername }],
         password: [{ required: true, trigger: 'blur', validator: validatePassword }]
       },
       loading: false,
@@ -89,7 +89,7 @@ export default {
   watch: {
     $route: {
       handler: function(route) {
-        this.redirect = route.query && route.query.redirect
+        // this.redirect = route.query && route.query.redirect
       },
       immediate: true
     }
@@ -110,7 +110,7 @@ export default {
         if (valid) {
           this.loading = true
           this.$store.dispatch('user/login', this.loginForm).then(() => {
-            this.$router.push({ path: this.redirect || '/' })
+            this.$router.push({ path:'/auth/test' })
             this.loading = false
           }).catch(() => {
             this.loading = false
